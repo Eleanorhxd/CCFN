@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from .att_model import pack_wrapper, AttModel
 from math import floor
 
-from .mlpcomm import MLP_Communicator
+from .rcmi import MLP_Communicator
 
 
 def clones(module, N):
