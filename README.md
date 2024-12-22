@@ -38,9 +38,9 @@ Download IU X-Ray and MIMIC-CXR datasets, and place them in `data` folder.
 
 The source code for training can be found here：
 
-Run `main_train.py` to train a model on the IU X-Ray data and MIMIC-CXR data.
+Run `train.py` to train a model on the IU X-Ray data and MIMIC-CXR data.
 
-Run `main_test.py` to test a model on the IU X-Ray data and MIMIC-CXR.
+Run `test.py` to test a model on the IU X-Ray data and MIMIC-CXR.
 
 To run the command, you only need to specify the config file and the GPU ID and iteration version of the model to be used
 
