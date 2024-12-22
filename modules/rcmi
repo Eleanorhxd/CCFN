@@ -1,0 +1,38 @@
+class MLP_block(nn.Module):
+    def __init__(self, hidden_size, dropout=0.5):
+        super().__init__()
+        self.hidden_size = hidden_size
+        self.net = nn.Sequential(
+            nn.Linear(hidden_size, hidden_size),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_size, hidden_size),
+            nn.Dropout(dropout)
+        )
+
+    def forward(self, x):
+        x = self.net(x)
+        return x
+
+
+class MLP_Communicator(nn.Module):
+    def __init__(self, hidden_size, depth=1):
+        super(MLP_Communicator, self).__init__()
+        self.depth = depth
+        self.hidden_size = hidden_size
+
+    def forward(self, x):
+        # print(f"MLP_Communicator input shape: {x.shape}")
+        b, n, d = x.shape
+        token_mixer = nn.Sequential(
+            Rearrange('b n d -> b d n'),
+            MLP_block(hidden_size=n),
+            Rearrange('b d n -> b n d')
+        ).to(x.device)
+
+        channel_mixer = MLP_block(hidden_size=d).to(x.device)
+
+        for _ in range(self.depth):
+            x = x + token_mixer(x)
+            x = x + channel_mixer(x)
+        return x
