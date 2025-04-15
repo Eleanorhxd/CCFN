@@ -1,11 +1,11 @@
-# CCIN: Collaborative cross-modal integration network for radiology report generation
+# CCIN: Collaborative cross-modal fusion network for radiology report generation
 
 
 ## Highlight
 
-- 1.	Proposes a collaborative cross-modal integration network for radiology report generation.
+- 1.	Proposes a collaborative cross-modal fusion network for radiology report generation.
 - 2.	Constructs visual collaborative enhancement module to accurately identify abnormal lesions.
-- 3.	Designs radiology cross-modal integrator to perform information alignment between different modalities.
+- 3.	Designs cross-modal semantic fusion to perform information alignment between different modalities.
 
 
 ## Requirements
