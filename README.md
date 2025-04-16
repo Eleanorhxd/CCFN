@@ -1,4 +1,4 @@
-# CCIN: Collaborative cross-modal fusion network for radiology report generation
+# CCFN: Collaborative cross-modal fusion network for radiology report generation
 
 
 ## Highlight
